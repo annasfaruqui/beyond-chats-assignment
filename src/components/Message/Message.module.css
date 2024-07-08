@@ -1,0 +1,29 @@
+.messageContainer {
+  padding: 1rem;
+  padding-bottom: 1.4rem;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+  width: 60%;
+  position: relative;
+}
+
+.messageSender {
+  align-self: flex-start;
+  border-bottom-right-radius: 1.5rem;
+  background-color: var(--color-brand-2);
+  color: var(--color-grey-8);
+}
+
+.messageReceiver {
+  align-self: flex-end;
+  border-bottom-left-radius: 1.5rem;
+  background-color: var(--color-brand-1);
+  color: var(--color-grey-8);
+}
+
+.time {
+  position: absolute;
+  bottom: 5%;
+  right: 1rem;
+  font-size: 1.2rem;
+}

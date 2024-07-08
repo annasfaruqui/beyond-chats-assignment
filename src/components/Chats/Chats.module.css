@@ -1,0 +1,12 @@
+.chatsList {
+  height: 84vh;
+  padding: 1rem 5px;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.chatsList::-webkit-scrollbar {
+  display: none;
+}
