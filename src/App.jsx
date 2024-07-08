@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import AppLayout from "./components/AppLayout/AppLayout";
 import Chats from "./components/Chats/Chats";
 
@@ -7,6 +7,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route element={<AppLayout />}>
+          <Route index element={<Navigate replace to="/all-chats" />} />
           <Route path="/all-chats" element={<Chats />} />
           <Route path="/personal" element={<Chats />} />
           <Route path="/regulars" element={<Chats />} />
