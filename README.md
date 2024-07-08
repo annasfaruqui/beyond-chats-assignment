@@ -24,4 +24,4 @@ npm run dev
 
 You can view the live demo of the website on:
 
-[https://https://beyondchats-annasfaruqui.netlify.app](https://https://beyondchats-annasfaruqui.netlify.app)
+[https://beyondchats-annasfaruqui.netlify.app](https://beyondchats-annasfaruqui.netlify.app)
