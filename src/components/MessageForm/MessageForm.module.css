@@ -2,6 +2,12 @@
   display: flex;
   align-items: center;
   gap: 1rem;
+
+  position: fixed;
+  /* width: 77.5rem; */
+  width: 51.5%;
+  bottom: 2.5%;
+  right: 10.5%;
 }
 
 .messageInput {
@@ -60,6 +66,7 @@
 .messageButton {
   padding: 1rem;
   background-color: var(--color-brand-1);
+  border: none;
   border-radius: 50%;
 
   display: flex;

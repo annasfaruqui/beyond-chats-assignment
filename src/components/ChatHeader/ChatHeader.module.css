@@ -1,0 +1,62 @@
+.chatHeader {
+  background-color: var(--color-grey-2);
+  border-bottom: 2px solid var(--color-grey-1);
+  display: flex;
+  align-items: center;
+  padding: 0.7rem 2rem;
+  gap: 2.5rem;
+  cursor: pointer;
+}
+
+.chatImg {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 50%;
+}
+
+.chatIdentity {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+.chatName {
+  color: var(--color-grey-7);
+  font-size: 1.7rem;
+}
+
+.lastSeen {
+  font-size: 1.4rem;
+  color: var(--color-grey-6);
+}
+
+.actionButtons {
+  margin-left: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  & button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    padding: 7px;
+    border: none;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: var(--color-grey-3);
+    }
+
+    & svg {
+      height: 2.5rem;
+      width: 2.5rem;
+      color: var(--color-grey-6);
+    }
+  }
+}

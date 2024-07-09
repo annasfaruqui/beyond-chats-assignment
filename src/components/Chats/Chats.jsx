@@ -7,10 +7,10 @@ import { useChats } from "../../hooks/useChats";
 function Chats() {
   const { chats, isLoading, error } = useChats(1);
 
-  console.log(
-    "Chats are: ",
-    chats.map((chat) => chat)
-  );
+  // console.log(
+  //   "Chats are: ",
+  //   chats.map((chat) => chat)
+  // );
 
   return (
     <div className={styles.chatsList}>

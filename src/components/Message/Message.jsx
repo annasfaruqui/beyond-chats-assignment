@@ -1,3 +1,4 @@
+import { IoCheckmarkDoneOutline, IoCheckmarkOutline } from "react-icons/io5";
 import styles from "./Message.module.css";
 import { format } from "date-fns/format";
 
@@ -32,9 +33,9 @@ const messageTemplate = {
 };
 
 function Message({ Message }) {
-  const { sender_id, message, created_at } = Message;
+  const { sender_id, message, created_at, unanswered } = Message;
 
-  const formattedDate = format(new Date(created_at), "hh:mm MMM dd, yyyy");
+  const formattedTime = format(new Date(created_at), "hh:mm");
 
   return (
     <div
@@ -48,7 +49,18 @@ function Message({ Message }) {
             {el} <br />
           </span>
         ))}
-        <span className={styles.time}>{formattedDate}</span>
+        <span className={styles.messageStatus}>
+          <span>{formattedTime}</span>
+          {sender_id !== 1 && (
+            <span className={styles.read}>
+              {unanswered === 0 ? (
+                <IoCheckmarkDoneOutline />
+              ) : (
+                <IoCheckmarkOutline />
+              )}
+            </span>
+          )}
+        </span>
       </p>
     </div>
   );

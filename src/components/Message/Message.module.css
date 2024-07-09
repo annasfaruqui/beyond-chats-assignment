@@ -3,7 +3,8 @@
   padding-bottom: 1.4rem;
   border-top-left-radius: 1.5rem;
   border-top-right-radius: 1.5rem;
-  width: 60%;
+  width: 65%;
+
   position: relative;
 }
 
@@ -21,9 +22,24 @@
   color: var(--color-grey-8);
 }
 
-.time {
+.messageStatus {
   position: absolute;
   bottom: 5%;
   right: 1rem;
   font-size: 1.2rem;
+
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.read {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  & svg {
+    height: 2rem;
+    width: 2rem;
+  }
 }
