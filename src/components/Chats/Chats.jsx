@@ -9,6 +9,8 @@ function Chats() {
   const { chats, isLoading, error } = useChats(1);
   const [curActive, setCurActive] = useState(null);
 
+  // console.log(chats);
+
   return (
     <div className={styles.chatsList}>
       {isLoading && <Loader />}

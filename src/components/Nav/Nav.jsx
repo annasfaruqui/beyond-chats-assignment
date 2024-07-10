@@ -51,7 +51,7 @@ function Link({ link, curActive, onActive, num }) {
     <li onClick={handleToggle}>
       <p className={`${styles.link} ${isOpen ? styles.active : ""}`}>
         {link.name}
-        <span className={styles.unread}>28</span>
+        {/* <span className={styles.unread}>28</span> */}
       </p>
     </li>
   );

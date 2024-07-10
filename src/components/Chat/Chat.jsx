@@ -1,6 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import styles from "./Chat.module.css";
 import defaultImg from "../../images/default.jpg";
+import styles from "./Chat.module.css";
+import { useMessages } from "../../hooks/useMessages";
+import Loader from "../Loader/Loader";
+import Error from "../Error/Error";
 
 const chatt = {
   id: 3888,
@@ -35,8 +38,9 @@ const chatt = {
 
 function Chat({ chat, current, curActive, onActive }) {
   const navigate = useNavigate();
-  const { creator, id } = chat;
+  const { creator, id, status } = chat;
   const { name } = creator;
+  const { messages, isLoading, error } = useMessages(id);
   const isOpen = current === curActive;
 
   function handleClick() {
@@ -45,25 +49,32 @@ function Chat({ chat, current, curActive, onActive }) {
   }
 
   return (
-    <div onClick={handleClick} className={`${styles.chat} ${isOpen ? styles.active : ""}`}>
-      <img
-        src={creator.image || defaultImg}
-        alt={`${name ? name : "Default user"}`}
-        className={styles.chatImg}
-      />
-      <div className={styles.chatDetails}>
-        <p className={styles.user}>{name ? name : "User"}</p>
-        <p className={`${styles.message} ${isOpen ? styles.activeMessage : ""}`}>
-          Lorem ipsum, dolor si rem....
-        </p>
+    <>
+      {isLoading && <Loader />}
+      {error && <Error errMessage={error} />}
+      <div onClick={handleClick} className={`${styles.chat} ${isOpen ? styles.active : ""}`}>
+        <img
+          src={creator.image || defaultImg}
+          alt={`${name ? name : "Default user"}`}
+          className={styles.chatImg}
+        />
+        <div className={styles.chatDetails}>
+          <p className={styles.user}>{name ? name : "User"}</p>
+          <p className={`${styles.message} ${isOpen ? styles.activeMessage : ""}`}>
+            {messages.length > 0 &&
+              `${messages.at(-1).message.split(" ").slice(0, 4).join(" ")}....`}
+          </p>
+        </div>
+        <div className={styles.chatStatus}>
+          <p className={`${styles.time} ${isOpen ? styles.activeTime : ""}`}>12:00</p>
+          {status === "new" && (
+            <p className={`${styles.unread} ${isOpen ? styles.activeUnread : ""}`}>
+              <strong>2</strong>
+            </p>
+          )}
+        </div>
       </div>
-      <div className={styles.chatStatus}>
-        <p className={`${styles.time} ${isOpen ? styles.activeTime : ""}`}>12:00</p>
-        <p className={`${styles.unread} ${isOpen ? styles.activeUnread : ""}`}>
-          <strong>2</strong>
-        </p>
-      </div>
-    </div>
+    </>
   );
 }
 

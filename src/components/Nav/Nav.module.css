@@ -4,6 +4,7 @@
   padding: 0 1rem;
   border-bottom: 2px solid var(--color-grey-1);
   scroll-behavior: smooth;
+  cursor: pointer;
 }
 
 .nav::-webkit-scrollbar {
@@ -32,7 +33,7 @@
   font-weight: 500;
   text-decoration: none;
   color: var(--color-grey-7);
-  padding: 1.5rem;
+  padding: 1.5rem 2rem;
   margin-top: 5px;
 
   display: flex;

@@ -35,7 +35,6 @@ const messageTemplate = {
 
 function Message({ msg, isLoading }) {
   const { sender_id, message, created_at, unanswered } = msg;
-  console.log(msg);
 
   const formattedTime = format(new Date(created_at), "hh:mm");
 
