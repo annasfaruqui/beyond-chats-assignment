@@ -1,6 +1,7 @@
 import { IoCheckmarkDoneOutline, IoCheckmarkOutline } from "react-icons/io5";
-import styles from "./Message.module.css";
 import { format } from "date-fns/format";
+import styles from "./Message.module.css";
+import Empty from "../Empty/Empty";
 
 const messageTemplate = {
   action_id: null,
@@ -8,7 +9,7 @@ const messageTemplate = {
   created_at: "2024-07-04T09:41:48.000000Z",
   id: 14022,
   is_corrected: 0,
-  message:
+  messagee:
     "Hi there! Welcome to BeyondChats\nWhat brings you here today?\nAsk me anything about BeyondChats",
   role_id: 9,
   sender: {
@@ -32,37 +33,40 @@ const messageTemplate = {
   vote: null,
 };
 
-function Message({ Message }) {
-  const { sender_id, message, created_at, unanswered } = Message;
+function Message({ msg, isLoading }) {
+  const { sender_id, message, created_at, unanswered } = msg;
+  console.log(msg);
 
   const formattedTime = format(new Date(created_at), "hh:mm");
 
   return (
-    <div
-      className={`${styles.messageContainer} ${
-        sender_id === 1 ? styles.messageSender : styles.messageReceiver
-      }`}
-    >
-      <p className={styles.message}>
-        {message.split("\n").map((el, idx) => (
-          <span key={idx}>
-            {el} <br />
-          </span>
-        ))}
-        <span className={styles.messageStatus}>
-          <span>{formattedTime}</span>
-          {sender_id !== 1 && (
-            <span className={styles.read}>
-              {unanswered === 0 ? (
-                <IoCheckmarkDoneOutline />
-              ) : (
-                <IoCheckmarkOutline />
+    <>
+      {isLoading ? (
+        <Empty />
+      ) : (
+        <div
+          className={`${styles.messageContainer} ${
+            sender_id === 1 ? styles.messageSender : styles.messageReceiver
+          }`}
+        >
+          <p className={styles.message}>
+            {message.split("\n").map((el, idx) => (
+              <span key={idx}>
+                {el} <br />
+              </span>
+            ))}
+            <span className={styles.messageStatus}>
+              <span>{formattedTime}</span>
+              {sender_id !== 1 && (
+                <span className={styles.read}>
+                  {unanswered === 0 ? <IoCheckmarkDoneOutline /> : <IoCheckmarkOutline />}
+                </span>
               )}
             </span>
-          )}
-        </span>
-      </p>
-    </div>
+          </p>
+        </div>
+      )}
+    </>
   );
 }
 

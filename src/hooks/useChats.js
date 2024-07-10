@@ -10,10 +10,8 @@ export function useChats(page) {
       async function getData() {
         try {
           setIsLoading(true);
-          const res = await fetch(
-            `https://devapi.beyondchats.com/api/get_all_chats?page=${page}`
-          );
-          if (!res.ok) throw new Error("There was an error fetching the chats");
+          const res = await fetch(`https://devapi.beyondchats.com/api/get_all_chats?page=${page}`);
+          if (!res.ok) throw new Error("Error fetching chats");
 
           const data = await res.json();
           if (data.status === "success") setChats(data.data.data);

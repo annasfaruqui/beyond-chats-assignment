@@ -1,7 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import styles from "./Chat.module.css";
 import defaultImg from "../../images/default.jpg";
 
-const user = {
+const chatt = {
   id: 3888,
   lead_score: 0,
   msg_count: 3,
@@ -32,18 +33,37 @@ const user = {
   },
 };
 
-function Chat({ chat }) {
-  const { creator } = chat;
-  const { name, email, phone } = creator;
+function Chat({ chat, current, curActive, onActive }) {
+  const navigate = useNavigate();
+  const { creator, id } = chat;
+  const { name } = creator;
+  const isOpen = current === curActive;
+
+  function handleClick() {
+    onActive(isOpen ? null : current);
+    navigate(`/chats/${id}`);
+  }
 
   return (
-    <form className={styles.chat}>
-      <img src={defaultImg} alt="Default user" className={styles.chatImg} />
+    <div onClick={handleClick} className={`${styles.chat} ${isOpen ? styles.active : ""}`}>
+      <img
+        src={creator.image || defaultImg}
+        alt={`${name ? name : "Default user"}`}
+        className={styles.chatImg}
+      />
       <div className={styles.chatDetails}>
-        <p className={styles.user}>{name ? name : email}</p>
-        <h4>{phone}</h4>
+        <p className={styles.user}>{name ? name : "User"}</p>
+        <p className={`${styles.message} ${isOpen ? styles.activeMessage : ""}`}>
+          Lorem ipsum, dolor si rem....
+        </p>
       </div>
-    </form>
+      <div className={styles.chatStatus}>
+        <p className={`${styles.time} ${isOpen ? styles.activeTime : ""}`}>12:00</p>
+        <p className={`${styles.unread} ${isOpen ? styles.activeUnread : ""}`}>
+          <strong>2</strong>
+        </p>
+      </div>
+    </div>
   );
 }
 

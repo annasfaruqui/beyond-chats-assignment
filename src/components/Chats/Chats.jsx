@@ -3,22 +3,27 @@ import Loader from "../Loader/Loader";
 import Error from "../Error/Error";
 import styles from "./Chats.module.css";
 import { useChats } from "../../hooks/useChats";
+import { useState } from "react";
 
 function Chats() {
   const { chats, isLoading, error } = useChats(1);
-
-  // console.log(
-  //   "Chats are: ",
-  //   chats.map((chat) => chat)
-  // );
+  const [curActive, setCurActive] = useState(null);
 
   return (
     <div className={styles.chatsList}>
       {isLoading && <Loader />}
       {error && <Error errMessage={error} />}
-      {chats.map((chat) => (
-        <Chat chat={chat} key={chat.id} />
-      ))}
+      <ul>
+        {chats.map((chat) => (
+          <Chat
+            chat={chat}
+            key={chat.id}
+            current={chat.id}
+            curActive={curActive}
+            onActive={setCurActive}
+          />
+        ))}
+      </ul>
     </div>
   );
 }

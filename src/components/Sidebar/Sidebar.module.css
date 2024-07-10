@@ -3,4 +3,5 @@
   height: 100%;
   grid-column: 1;
   border-right: 2px solid var(--color-grey-1);
+  overflow: hidden;
 }

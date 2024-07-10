@@ -1,11 +1,7 @@
 .main {
   grid-column: 2;
   height: 100%;
-  background-image: linear-gradient(
-      to bottom,
-      rgba(5, 0, 36, 0.808),
-      rgba(56, 7, 65, 0.749)
-    ),
+  background-image: linear-gradient(to bottom, rgba(5, 0, 36, 0.808), rgba(56, 7, 65, 0.749)),
     url("../../images/tele-img.png");
   background-position: center;
   background-repeat: no-repeat;
@@ -13,42 +9,4 @@
 
   overflow: hidden;
   position: relative;
-}
-
-.section {
-  /* background-color: brown; */
-
-  max-width: 70%;
-  margin: 0 auto;
-  height: 82%;
-  display: flex;
-  flex-direction: column-reverse;
-  gap: 1.5rem;
-
-  padding: 0 1rem;
-  padding-top: 1.5rem;
-  margin-bottom: 8rem;
-  overflow-y: scroll;
-}
-
-.section::-webkit-scrollbar {
-  display: none;
-}
-
-.messagesDate {
-  font-size: 1.4rem;
-  background-color: antiquewhite;
-  border-radius: 5rem;
-  width: fit-content;
-  padding: 3px 1rem;
-  margin: 0 auto 1rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.messages {
-  display: flex;
-  flex-direction: column;
 }

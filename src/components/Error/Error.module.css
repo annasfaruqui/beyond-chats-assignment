@@ -10,5 +10,12 @@
 .error {
   font-size: 2rem;
   font-weight: 600;
-  color: var(--color-gray-6);
+  color: var(--color-grey-9);
+  background-color: var(--color-brand-1);
+  padding: 1rem 2rem;
+  border-radius: 5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

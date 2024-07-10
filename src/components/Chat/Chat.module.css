@@ -1,10 +1,10 @@
 .chat {
   border-radius: 1rem;
-  padding: 1rem 1rem;
+  padding: 1rem;
 
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1rem;
   cursor: pointer;
 
   &:hover {
@@ -12,18 +12,81 @@
   }
 }
 
+.active {
+  background-color: var(--color-brand-1);
+
+  &:hover {
+    background-color: var(--color-brand-1);
+  }
+}
+
 .chatImg {
-  height: 6rem;
-  width: 6rem;
+  height: 5.5rem;
+  width: 5.5rem;
   border-radius: 50%;
 }
 
 .chatDetails {
   display: flex;
   flex-direction: column;
+  gap: 3px;
 }
 
 .user {
   color: var(--color-grey-8);
   font-size: 1.8rem;
+  font-weight: 500;
+}
+
+.message {
+  color: var(--color-grey-6);
+  font-size: 1.5rem;
+}
+
+.activeMessage {
+  color: var(--color-grey-8);
+  font-weight: 500;
+}
+
+.chatStatus {
+  margin-left: auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 7px;
+}
+
+.time {
+  font-size: 1.2rem;
+  color: var(--color-grey-6);
+  font-weight: 500;
+}
+
+.activeTime {
+  color: var(--color-grey-8);
+  font-weight: 600;
+}
+
+.unread {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 2.2rem;
+  width: 2.2rem;
+
+  padding: 7px;
+  border-radius: 50%;
+  background-color: var(--color-brand-1);
+  color: var(--color-grey-8);
+
+  & strong {
+    font-weight: 500;
+  }
+}
+
+.activeUnread {
+  background-color: var(--color-grey-10);
+  color: var(--color-brand-1);
 }
